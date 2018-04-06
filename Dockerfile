@@ -17,10 +17,12 @@ RUN apt-get update \
 && make \
 && make install \
 && cd ./src \
-&& COPY 3dcoin-cli /usr/bin/3dcoin-cli \
-&& COPY 3dcoin-tx /usr/bin/3dcoin-tx \
-&& COPY 3dcoind /usr/bin/3dcoind \
-&& COPY 3dcoin-qt /usr/bin/3dcoin-qt \
+&& mv 3dcoin-cli /usr/bin/3dcoin-cli \
+&& mv 3dcoin-tx /usr/bin/3dcoin-tx \
+&& mv 3dcoind /usr/bin/3dcoind \
+&& mv 3dcoin-qt /usr/bin/3dcoin-qt \
+&& cd /tmp \
+&& rm -rf 3dcoin \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
