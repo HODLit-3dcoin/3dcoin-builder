@@ -14,7 +14,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 			org.label-schema.version=$VERSION \
 			org.label-schema.schema-version="1.0"
 
-ARG GIT_TAG=v0.13.3.2
+ARG GIT_TAG=V.0.13.3.2
 
 RUN apt-get update \
 && apt-get install -y wget git build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev libzmq3-dev \
