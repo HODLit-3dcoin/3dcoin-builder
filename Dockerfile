@@ -14,7 +14,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 			org.label-schema.version=$VERSION \
 			org.label-schema.schema-version="1.0"
 
-ARG GIT_TAG=v0.13.3.1
+ARG GIT_TAG=v0.13.3.2
 
 RUN apt-get update \
 && apt-get install -y wget git build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev libzmq3-dev \
@@ -31,8 +31,8 @@ RUN apt-get update \
 && make install \
 && cd ../.. \
 && ./autogen.sh \
-&& ./configure LDFLAGS="-L/tmp/3dcoin/db4/lib/" CPPFLAGS="-I/tmp/3dcoin/db4/include/" --without-miniupnpc --without-gui \
-&& make \
+&& ./configure LDFLAGS="-L/tmp/3dcoin/db4/lib/" CPPFLAGS="-I/tmp/3dcoin/db4/include/" --without-miniupnpc --disable-tests --disable-gui-tests --without-gui \
+&& make install \
 && cd ./src \
 && mv 3dcoin-cli /usr/bin/3dcoin-cli \
 && mv 3dcoin-tx /usr/bin/3dcoin-tx \
